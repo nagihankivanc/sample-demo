@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global:
-    registry: ''
+    registry: '836972973171.dkr.ecr.us-west-1.amazonaws.com'
 
 java:
     options: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
@@ -34,7 +34,7 @@ cartsdb:
 
 carts:
     image:
-        repo: weaveworksdemos/carts
+        repo: sock-shop-app/carts
         tag: 0.4.8
     containerPort: 80
     resources:
@@ -47,7 +47,7 @@ carts:
 
 cataloguedb:
     image:
-        repo: weaveworksdemos/catalogue-db
+        repo: sock-shop-app/catalogue-db
         tag: 0.3.0
     resources:
         limits:
@@ -59,7 +59,7 @@ cataloguedb:
 
 catalogue:
     image:
-        repo: weaveworksdemos/catalogue
+        repo: sock-shop-app/catalogue
         tag: 0.3.5
     containerPort: 80
     resources:
@@ -73,7 +73,7 @@ catalogue:
 frontend:
     replicas: 1
     image:
-        repo: weaveworksdemos/front-end
+        repo: sock-shop-app/front-end
         tag: 0.3.12
     resources:
         limits:
@@ -87,7 +87,7 @@ loadtest:
     replicas: 2
     enabled: false
     image:
-        repo: weaveworksdemos/load-test
+        repo: sock-shop-app/load-test
         tag: 0.1.1
     resources:
         limits:
@@ -114,7 +114,7 @@ ordersdb:
 
 orders:
     image:
-        repo: weaveworksdemos/orders
+        repo: sock-shop-app/orders
         tag: 0.4.7
     containerPort: 80
     resources:
@@ -127,7 +127,7 @@ orders:
 
 payment:
     image:
-        repo: weaveworksdemos/payment
+        repo: sock-shop-app/payment
         tag: 0.4.3
     declinePaymentsOverAmount: 200
     containerPort: 8080
@@ -141,7 +141,7 @@ payment:
 
 queuemaster:
     image:
-        repo: weaveworksdemos/queue-master
+        repo: sock-shop-app/queue-master
         tag: 0.3.1
     resources:
         limits:
@@ -180,7 +180,7 @@ sessiondb:
 
 shipping:
     image:
-        repo: weaveworksdemos/shipping
+        repo: sock-shop-app/shipping
         tag: 0.4.8
     containerPort: 80
     resources:
@@ -193,7 +193,7 @@ shipping:
 
 userdb:
     image:
-        repo: weaveworksdemos/user-db
+        repo: sock-shop-app/user-db
         tag: 0.4.0
     resources:
         limits:
@@ -205,7 +205,7 @@ userdb:
 
 user:
     image:
-        repo: weaveworksdemos/user
+        repo: sock-shop-app/user
         tag: 0.4.7
     containerPort: 80
     resources:
