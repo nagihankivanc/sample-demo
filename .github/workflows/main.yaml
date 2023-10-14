@@ -88,17 +88,17 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        AWS_DEFAULT_REGION: us-west-1
       run: |
         aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
         aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-        aws configure set default.region $AWS_DEFAULT_REGION
+        aws configure set default.region us-west-1
 
     - name: Login to AWS ECR
-      run: aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 836972973171.dkr.ecr.us-west-1.amazonaws.com
+      run: aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 836972973171.dkr.ecr.us-west-1.amazonaws.com
     - name: Build and Push Docker Image
       run: |
-        docker build -t sock-shop-app:latest -f Dockerfile .
+        docker build -t sock-shop-app:latest -f /deploy/kubernetes/Dockerfile .
         docker tag sock-shop-app:latest 836972973171.dkr.ecr.us-west-1.amazonaws.com/sock-shop-app:latest
         docker push 836972973171.dkr.ecr.us-west-1.amazonaws.com/sock-shop-app:latest
         
